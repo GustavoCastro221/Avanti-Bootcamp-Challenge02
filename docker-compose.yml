@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  test_data:
+    image: alpine
+    volumes:
+      - ./data_backup.tar.gz:/tmp/data.tar.gz
+      - ./test_data/:/data
+    command: sh -c "cd /data && rm -rf * && tar -xzf /tmp/data.tar.gz -C /data"
+
+  postgres:
+    container_name: AvantiDesafio02
+    image: postgres:latest
+    depends_on:
+      - test_data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: avantidesafio02
+    ports:
+    - 5433:5432
+    volumes:
+      - ./test_data/data_avantidesafio02:/var/lib/postgresql/data
