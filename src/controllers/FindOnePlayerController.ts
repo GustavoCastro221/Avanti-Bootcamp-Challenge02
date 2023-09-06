@@ -10,7 +10,7 @@ export class FindOnePlayerController{
                     id,
                 }
         });
-            return res.status(201).json(player);
+            return res.status(200).json(player);
         } catch (error) {
             return res.status(500).json({error: 'An error ocurred when retriving a player'})
         }
