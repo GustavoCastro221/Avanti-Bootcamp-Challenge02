@@ -17,4 +17,5 @@ router.post("/team", createTeam.handle)
 
 //Rotas de Campeonatos
 
+// Rotas de associação (tabela _ChampionshipToTeam A é id do campeonato, B é id do Time)
 export { router };
