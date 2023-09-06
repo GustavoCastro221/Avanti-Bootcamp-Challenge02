@@ -4,12 +4,13 @@ import {prismaClient} from "../database/prismaClient"
 export class CreatePlayerController{
     async handle(req: Request, res: Response){
         try {
-            const {playerName, playerNumber} = req.body;
+            const {playerName, playerNumber, associatedTeamId } = req.body;
 
             const player = await prismaClient.player.create({
             data:{
                 playerName,
-                playerNumber
+                playerNumber,
+                associatedTeamId
             },
         });
             return res.status(201).json(player);

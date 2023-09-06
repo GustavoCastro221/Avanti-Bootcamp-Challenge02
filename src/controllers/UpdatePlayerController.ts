@@ -4,13 +4,14 @@ import {prismaClient} from "../database/prismaClient"
 export class UpdatePlayerController{
     async handle(req: Request, res: Response){
         const { id } = req.params;
-        const {playerName, playerNumber} = req.body;
+        const {playerName, playerNumber, associatedTeamId} = req.body;
         try { 
             const player = await prismaClient.player.update({
                 where:{ id :id },
                 data:{
                     playerName,
-                    playerNumber
+                    playerNumber,
+                    associatedTeamId
                 }
         });
             return res.status(200).json(player);
