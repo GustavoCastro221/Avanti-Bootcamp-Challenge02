@@ -15,7 +15,7 @@ export class UpdateTeamController{
         });
             return res.status(200).json(team);
         } catch (error) {
-            return res.status(500).json({error: 'An error ocurred when updating a player'})
+            return res.status(500).json({error: 'An error ocurred when updating a team'})
         }
         
 

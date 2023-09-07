@@ -42,13 +42,13 @@ router.delete("/player/:id", deletePlayer.handle)
 
 //Rotas de Times
 router.post("/team", createTeam.handle)
-router.delete("/team", deleteTeam.handle)
+router.delete("/team/:id", deleteTeam.handle)
 router.get("/teams", findAllTeam.handle)
 router.get("/team/:id", findOneTeam.handle)
 router.put("/team/:id", updateTeam.handle)
 //Rotas de Campeonatos
 router.post("/championship", createChampionship.handle)
-router.delete("/championship", deleteChampionship.handle)
+router.delete("/championship/:id", deleteChampionship.handle)
 router.get("/championships", findAllChampionships.handle)
 router.get("/championship/:id", findOneChampionship.handle)
 router.put("/championship/:id", updateChampionship.handle)

@@ -4,7 +4,7 @@ import {prismaClient} from "../database/prismaClient"
 export class UpdateChampionshipController{
     async handle(req: Request, res: Response){
         const { id } = req.params;
-        const {championshipName, startingDate, endDate,competingTeams } = req.body;
+        const {championshipName, startingDate, endDate} = req.body;
         try { 
             const championship = await prismaClient.championship.update({
                 where:{ id :id },
@@ -12,7 +12,6 @@ export class UpdateChampionshipController{
                     championshipName,
                     startingDate,
                     endDate,
-                    competingTeams
                 },
         });
             return res.status(200).json(championship);
