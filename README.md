@@ -3,121 +3,84 @@ Challenge proposed in Atlantico's Avanti bootcamp
 
 # Express API Documentation
 
+Express API documentation for managing players, teams, and championships. This API provides endpoints to perform CRUD (Create, Read, Update, Delete) operations for these entities.
+
 ## Player Routes
 
-### Get All Players
+| Route               | Method | Description                               | Controller            |
+|---------------------|--------|-------------------------------------------|-----------------------|
+| `/players`          | GET    | Retrieve a list of all players.          | `findAllPlayers.handle` |
+| `/player/:id`       | GET    | Retrieve a player by their unique ID.    | `findOnePlayer.handle`  |
+| `/player`           | POST   | Create a new player.                     | `createPlayer.handle`  |
+| `/player/:id`       | PUT    | Update a player's information by ID.     | `updatePlayer.handle`  |
+| `/player/:id`       | DELETE | Delete a player by ID.                   | `deletePlayer.handle`  |
 
-- **Route:** `/players`
-- **Method:** GET
-- **Description:** Retrieve a list of all players.
-- **Controller:** `findAllPlayers.handle`
+### Create Player (POST /player):
 
-### Get Player by ID
+**Required Data:**
+- `playerName` (String): The name of the player.
+- `playerNumber` (Int): The player's number.
 
-- **Route:** `/player/:id`
-- **Method:** GET
-- **Description:** Retrieve a player by their unique ID.
-- **Controller:** `findOnePlayer.handle`
+**Optional Data:**
+- `associatedTeamId` (String): The ID of the team associated with the player.
 
-### Create Player
+### Update Player by ID (PUT /player/:id):
 
-- **Route:** `/player`
-- **Method:** POST
-- **Description:** Create a new player.
-- **Controller:** `createPlayer.handle`
-
-### Update Player by ID
-
-- **Route:** `/player/:id`
-- **Method:** PUT
-- **Description:** Update a player's information by their unique ID.
-- **Controller:** `updatePlayer.handle`
-
-### Delete Player by ID
-
-- **Route:** `/player/:id`
-- **Method:** DELETE
-- **Description:** Delete a player by their unique ID.
-- **Controller:** `deletePlayer.handle`
+**Optional Data:**
+- `playerName` (String): The updated name of the player.
+- `playerNumber` (Int): The updated player's number.
+- `associatedTeamId` (String): The updated ID of the team associated with the player.
 
 ## Team Routes
 
-### Create Team
+| Route           | Method | Description                         | Controller        |
+|-----------------|--------|-------------------------------------|-------------------|
+| `/team`         | POST   | Create a new team.                  | `createTeam.handle` |
+| `/team/:id`     | DELETE | Delete a team by ID.               | `deleteTeam.handle` |
+| `/teams`        | GET    | Retrieve a list of all teams.      | `findAllTeam.handle` |
+| `/team/:id`     | GET    | Retrieve a team by its unique ID.  | `findOneTeam.handle` |
+| `/team/:id`     | PUT    | Update a team's information by ID. | `updateTeam.handle` |
 
-- **Route:** `/team`
-- **Method:** POST
-- **Description:** Create a new team.
-- **Controller:** `createTeam.handle`
+### Create Team (POST /team):
 
-### Delete Team by ID
+**Required Data:**
+- `teamName` (String): The name of the team.
 
-- **Route:** `/team/:id`
-- **Method:** DELETE
-- **Description:** Delete a team by its unique ID.
-- **Controller:** `deleteTeam.handle`
+**Optional Data:**
+- None.
 
-### Get All Teams
+### Update Team by ID (PUT /team/:id):
 
-- **Route:** `/teams`
-- **Method:** GET
-- **Description:** Retrieve a list of all teams.
-- **Controller:** `findAllTeam.handle`
-
-### Get Team by ID
-
-- **Route:** `/team/:id`
-- **Method:** GET
-- **Description:** Retrieve a team by its unique ID.
-- **Controller:** `findOneTeam.handle`
-
-### Update Team by ID
-
-- **Route:** `/team/:id`
-- **Method:** PUT
-- **Description:** Update a team's information by its unique ID.
-- **Controller:** `updateTeam.handle`
+**Optional Data:**
+- `teamName` (String): The updated name of the team.
 
 ## Championship Routes
 
-### Create Championship
+| Route               | Method | Description                                           | Controller                |
+|---------------------|--------|-------------------------------------------------------|---------------------------|
+| `/championship`     | POST   | Create a new championship.                            | `createChampionship.handle` |
+| `/championship/:id` | DELETE | Delete a championship by its unique ID.              | `deleteChampionship.handle` |
+| `/championships`    | GET    | Retrieve a list of all championships with teams.    | `findAllChampionships.handle` |
+| `/championship/:id` | GET    | Retrieve a championship by its unique ID with teams. | `findOneChampionship.handle` |
+| `/championship/:id` | PUT    | Update a championship by its unique ID with teams.   | `updateChampionship.handle` |
 
-- **Route:** `/championship`
-- **Method:** POST
-- **Description:** Create a new championship.
-- **Controller:** `createChampionship.handle`
+### Create Championship (POST /championship):
 
-### Delete Championship by ID
+**Required Data:**
+- `championshipName` (String): The name of the championship.
 
-- **Route:** `/championship/:id`
-- **Method:** DELETE
-- **Description:** Delete a championship by its unique ID.
-- **Controller:** `deleteChampionship.handle`
+**Optional Data:**
+- `startingDate` (DateTime): The starting date of the championship (defaulted to the current date).
+- `endDate` (DateTime): The end date of the championship (defaulted to one year from the current date).
+- `competingTeams` (Array of Team IDs): An array of team IDs that will compete in the championship. Include an empty array when there are no teams associated with the championship on creation.
 
-### Get All Championships
+### Update Championship by ID (PUT /championship/:id):
 
-- **Route:** `/championships`
-- **Method:** GET
-- **Description:** Retrieve a list of all championships along with their associated teams.
-- **Controller:** `findAllChampionships.handle`
+**Optional Data:**
+- `championshipName` (String): The updated name of the championship.
+- `startingDate` (DateTime): The updated starting date of the championship.
+- `endDate` (DateTime): The updated end date of the championship.
+- `competingTeams` (Array of Team IDs): An array of updated team IDs that will compete in the championship.
 
-### Get Championship by ID
+These definitions should help you understand what data is required and optional for each CRUD operation on your Player, Team, and Championship entities. Be sure to include the required data when making POST or PUT requests and provide any optional data as needed for your specific use case.
 
-- **Route:** `/championship/:id`
-- **Method:** GET
-- **Description:** Retrieve a championship by its unique ID along with its associated teams.
-- **Controller:** `findOneChampionship.handle`
-
-### Update Championship by ID
-
-- **Route:** `/championship/:id`
-- **Method:** PUT
-- **Description:** Update a championship's information by its unique ID, including its associated teams.
-- **Controller:** `updateChampionship.handle`
-
-## Usage
-
-- Make HTTP requests to the specified routes using your preferred API client or tool.
-- Ensure you provide the necessary data in the request body when creating or updating entities.
-- Use the provided route parameters (e.g., `:id`) to specify the target entity when retrieving, updating, or deleting.
-
-Feel free to reach out if you have any questions or need further assistance with using the API.
