@@ -68,7 +68,7 @@ Express API documentation for managing players, teams, and championships. This A
 
 **Required Data:**
 - `championshipName` (String): The name of the championship.
-- Include an empty array when there are no teams associated with the championship on creation.
+- `competingTeams` {Array of Team IDs} Include an empty array when there are no teams associated with the championship on creation.
 
 **Optional Data:**
 - `startingDate` (DateTime): The starting date of the championship (defaulted to the current date).
