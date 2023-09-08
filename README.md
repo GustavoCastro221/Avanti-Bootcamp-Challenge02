@@ -3,8 +3,6 @@ Challenge proposed in Atlantico's Avanti bootcamp
 
 # Express API Documentation
 
-Welcome to the Express API documentation for managing players, teams, and championships. This API provides endpoints to perform CRUD (Create, Read, Update, Delete) operations for these entities.
-
 ## Player Routes
 
 ### Get All Players
