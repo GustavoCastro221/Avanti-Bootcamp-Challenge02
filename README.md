@@ -1,6 +1,12 @@
 # Avanti-Bootcamp-Challenge02
 Challenge proposed in Atlantico's Avanti bootcamp
 
+# How to run the project
+- Use the included Docker-Compose file running the command: docker-compose up -d
+- Install dependecies with the command: npm-install
+- Use prisma migrate to create the database with the command: npx migrate dev
+- Finally, with docker running, run "npx run dev" to start the project
+
 # Express API Documentation
 
 Express API documentation for managing players, teams, and championships. This API provides endpoints to perform CRUD (Create, Read, Update, Delete) operations for these entities.
