@@ -1,19 +1,19 @@
 import { Router } from "express";
-import { FindAllPlayersController } from "./controllers/FindAllPlayersController";
-import { FindOnePlayerController } from "./controllers/FindOnePlayerController";
-import { CreatePlayerController } from "./controllers/CreatePlayerController";
-import { UpdatePlayerController } from "./controllers/UpdatePlayerController";
-import { DeletePlayerController } from "./controllers/DeletePlayerController";
-import { CreateTeamController } from "./controllers/CreateTeamController";
-import { DeleteTeamController } from "./controllers/DeleteTeamController"
-import { FindAllTeamsController } from "./controllers/FindAllTeamController";
-import { FindOneTeamController } from "./controllers/FindOneTeamController";
-import { UpdateTeamController } from "./controllers/UpdateTeamController";
-import { CreateChampionshipController } from "./controllers/CreateChampionshipControlller";
-import { DeleteChampionshipController } from "./controllers/DeleteChampionshipController";
-import { FindAllChampioshipController } from "./controllers/FindAllChampionshipController";
-import { FindOneChampionshipController } from "./controllers/FindOneChampionshipController";
-import { UpdateChampionshipController } from "./controllers/UpdateChampionshipController";
+import { FindAllPlayersController } from "./controllers/playerControllers/FindAllPlayersController";
+import { FindOnePlayerController } from "./controllers/playerControllers/FindOnePlayerController";
+import { CreatePlayerController } from "./controllers/playerControllers/CreatePlayerController";
+import { UpdatePlayerController } from "./controllers/playerControllers/UpdatePlayerController";
+import { DeletePlayerController } from "./controllers/playerControllers/DeletePlayerController";
+import { CreateTeamController } from "./controllers/teamControllers/CreateTeamController";
+import { DeleteTeamController } from "./controllers/teamControllers/DeleteTeamController"
+import { FindAllTeamsController } from "./controllers/teamControllers/FindAllTeamController";
+import { FindOneTeamController } from "./controllers/teamControllers/FindOneTeamController";
+import { UpdateTeamController } from "./controllers/teamControllers/UpdateTeamController";
+import { CreateChampionshipController } from "./controllers/championshipControllers/CreateChampionshipControlller";
+import { DeleteChampionshipController } from "./controllers/championshipControllers/DeleteChampionshipController";
+import { FindAllChampioshipController } from "./controllers/championshipControllers/FindAllChampionshipController";
+import { FindOneChampionshipController } from "./controllers/championshipControllers/FindOneChampionshipController";
+import { UpdateChampionshipController } from "./controllers/championshipControllers/UpdateChampionshipController";
 
 
 const router = Router();
@@ -46,11 +46,12 @@ router.delete("/team/:id", deleteTeam.handle)
 router.get("/teams", findAllTeam.handle)
 router.get("/team/:id", findOneTeam.handle)
 router.put("/team/:id", updateTeam.handle)
+
 //Rotas de Campeonatos
 router.post("/championship", createChampionship.handle)
 router.delete("/championship/:id", deleteChampionship.handle)
 router.get("/championships", findAllChampionships.handle)
 router.get("/championship/:id", findOneChampionship.handle)
 router.put("/championship/:id", updateChampionship.handle)
-// Rotas de associação (tabela _ChampionshipToTeam A é id do campeonato, B é id do Time)
+
 export { router };

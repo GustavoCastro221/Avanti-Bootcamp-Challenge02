@@ -1,5 +1,5 @@
 import {Request, Response} from 'express'
-import {prismaClient} from "../database/prismaClient"
+import {prismaClient} from "../../database/prismaClient"
 
 export class CreatePlayerController{
     async handle(req: Request, res: Response){
@@ -17,7 +17,5 @@ export class CreatePlayerController{
         } catch (error) {
             return res.status(500).json({error: 'An error ocurred when creating player'})
         }
-        
-
     }
 }

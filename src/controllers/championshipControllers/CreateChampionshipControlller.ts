@@ -1,16 +1,19 @@
 import {Request, Response} from 'express'
-import {prismaClient} from "../database/prismaClient"
+import {prismaClient} from "../../database/prismaClient"
 
 export class CreateChampionshipController{
     async handle(req: Request, res: Response){
         try {
-            const {championshipName, startingDate, endDate } = req.body;
+            const {championshipName, startingDate, endDate, teamIds } = req.body;
 
             const Championship = await prismaClient.championship.create({
             data:{
                 championshipName,
                 startingDate,
                 endDate,
+                competingTeams: {
+                    connect: teamIds.map((id: string) => ({ id })),
+                  },
             },
         });
             return res.status(201).json(Championship);

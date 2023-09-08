@@ -1,5 +1,5 @@
 import {Request, Response} from 'express'
-import {prismaClient} from "../database/prismaClient"
+import {prismaClient} from "../../database/prismaClient"
 
 export class CreateTeamController{
     async handle(req: Request, res: Response){
@@ -16,7 +16,5 @@ export class CreateTeamController{
         } catch (error) {
             return res.status(500).json({error: 'An error ocurred when creating team'})
         }
-        
-
     }
 }
