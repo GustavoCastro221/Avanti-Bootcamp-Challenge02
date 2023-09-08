@@ -5,7 +5,7 @@ Challenge proposed in Atlantico's Avanti bootcamp
 - Use the included Docker-Compose file running the command: docker-compose up -d
 - Install dependecies with the command: npm-install
 - Use prisma migrate to create the database with the command: npx migrate dev
-- Finally, with docker running, run "npx run dev" to start the project
+- Finally, with docker running, run "npm run dev" to start the project
 
 # Express API Documentation
 
